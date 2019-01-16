@@ -61,13 +61,16 @@
                 </div>
                 <!-- this pair will actually stack not go in line -->
                 <div class="toDo">
-                    <p>to do list:</p>
-                    <ul style="list-style-type:circle">
-                        <!-- should draww from api info? -->
-                            <li>Make list</li>
-                            <li>Run</li>
-                            <li>Milk</li>
-                          </ul>
+                    <h1>Today's Agenda</h1>
+
+                        <!-- Input Form -->
+                        <form>
+                          <span id="todo-item">To-Do Item: <input id="to-do" type="text" ><input id="add-to-do" value="Add Item" type="submit"></span>
+                        </form>
+                    
+                        <hr>
+                    
+                        <div id="to-dos"></div>
                 </div>
             </div>
         
@@ -99,10 +102,10 @@
 </div>
     
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript"></script>
+    <script src="assets/js/to-doLogic.js"></script>
 
-  </script>
     
 </body>
 
