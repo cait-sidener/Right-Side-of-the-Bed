@@ -23,8 +23,15 @@
         <div class="container container-time">
             <div class="row">
                 <div class="col-md-6">
+                    <body onload="startTime()">
+
                     <!-- world clock api? -->
-                    <p>real time: 12:00pm</p>
+                    <div id="clockdate">
+                        <div class="clockdate-wrapper">
+                            <div id="clock"></div>
+                            <div id="date"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6" id="commute">
                     <!-- add ready time to commute? -->
@@ -105,7 +112,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"></script>
     <script src="assets/js/to-doLogic.js"></script>
-
+    <script src="assets/js/clock-logic.js"></script>
     
 </body>
 
