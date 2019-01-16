@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <title>Project1</title>
+
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">RightSideOfTheDay</h1>
+                <p class="lead"></p>
+        </div>
+    </div>
+    
+    <div class="container-fluid container-content">
+        <div class="container container-time">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- world clock api? -->
+                    <p>real time: 12:00pm</p>
+                </div>
+                <div class="col-md-6" id="commute">
+                    <!-- add ready time to commute? -->
+                    <p>commute time: 45min.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container container-WxMaps">
+            <div class="row">
+                <div class="col-md-6">
+                    <a>
+                        <!-- wx info from api -->
+                        <p>WX info:</p>
+                        <p>Temp:</p>
+                        <p>Precip:</p>
+                        <img class="wxImage">                        
+                    </a>
+                </div>
+        
+                <div class="col-md-6" id="maps">
+                    <a>
+                        <p>Maps link:</p>
+                        <!-- map image from api? -->
+                        <img class="mapImg">
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="container container-quotesToDo">
+                <div class="quotes">
+                    <!-- replaced by api quote generator -->
+                    <p>quotes: These are the days of our lives!</p>
+                </div>
+                <!-- this pair will actually stack not go in line -->
+                <div class="toDo">
+                    <p>to do list:</p>
+                    <ul style="list-style-type:circle">
+                        <!-- should draww from api info? -->
+                            <li>Make list</li>
+                            <li>Run</li>
+                            <li>Milk</li>
+                          </ul>
+                </div>
+            </div>
+        
+    <div class="container container-exerciseMusic">
+            <div class="row">
+                <div class="col-md-6">
+                    <a>
+                        <p>exercise link:</p>
+                    </a>
+                </div>
+                <div class="col-md-6" id="music">
+                        <p>music player:</p>
+                </div>
+            </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="container container-buttonsBottom">
+            <button type="button" class="btn btn-outline-primary">Primary</button>
+            <button type="button" class="btn btn-outline-secondary">Secondary</button>
+            <button type="button" class="btn btn-outline-success">Success</button>
+            <button type="button" class="btn btn-outline-danger">Danger</button>
+            <button type="button" class="btn btn-outline-warning">Warning</button>
+            <button type="button" class="btn btn-outline-info">Info</button>
+            <button type="button" class="btn btn-outline-light">Light</button>
+            <button type="button" class="btn btn-outline-dark">Dark</button>
+        </div>
+    </div>
+</div>
+    
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  </script>
+    
+</body>
+
+</html>
+
