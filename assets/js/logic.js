@@ -12,11 +12,13 @@ $("#headline-news").on("click", function () {
         .then(function (response) {
             console.log(response);
 
+            for(var i = 0; i < response.results.length; i++){
+
             //Creating a div to hold the movie
             var newsDiv = $("<div class='news'>");
 
             // Storing headline abstract data
-            var headline = response.results.abstract;
+            var headline = response.results[i].abstract;
 
             // Creating an element to have headline abstract display
             var abstract = $("<h3>").text(headline);
@@ -25,7 +27,7 @@ $("#headline-news").on("click", function () {
             newsDiv.append(abstract);
 
             // Storing the source
-            var source = response.results.url;
+            var source = response.results[i].url;
 
             // Creating an element to have headline url displayed
             var newsSource = $("<p>").text(source);
@@ -35,5 +37,6 @@ $("#headline-news").on("click", function () {
 
             // Putting the entire headline above the previous headlines
             $("#headline-view").prepend(newsDiv);
+            }
         })
 })
