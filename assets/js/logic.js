@@ -1,8 +1,7 @@
 $("#headline-news").on("click", function () {
 
     // queryURL is the url we'll use to query the API
-    var queryURL = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=5G5trsY71XEGyCzsg97O2rky6AnWpUOt";
-
+    var queryURL = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=5G5trsY71XEGyCzsg97O2rky6AnWpUOt&limit=1";
 
     $.ajax({
             url: queryURL,
@@ -10,33 +9,36 @@ $("#headline-news").on("click", function () {
         })
         // After data comes back from the request
         .then(function (response) {
-            console.log(response);
 
-            for(var i = 0; i < response.results.length; i++){
+            var shorter = response.results.slice(0, 1);
+            console.log(shorter);
+            for (var i = 0; i < shorter.length; i++) {
 
-            //Creating a div to hold the movie
-            var newsDiv = $("<div class='news'>");
 
-            // Storing headline abstract data
-            var headline = response.results[i].abstract;
+                //Creating a div to hold the movie
+                var newsDiv = $("<div class='news'>");
 
-            // Creating an element to have headline abstract display
-            var abstract = $("<h3>").text(headline);
+                // Storing headline abstract data
+                var headline = shorter[i].abstract;
 
-            // Displaying the abstract
-            newsDiv.append(abstract);
+                // Creating an element to have headline abstract display
+                var abstract = $("<h3>").text(headline);
 
-            // Storing the source
-            var source = response.results[i].url;
+                // Displaying the abstract
+                newsDiv.append(abstract);
 
-            // Creating an element to have headline url displayed
-            var newsSource = $("<p>").text(source);
+                // Storing the source
+                var source = shorter[i].url;
 
-            // Displaying the URL
-            newsDiv.append(newsSource);
+                // Creating an element to have headline url displayed
+                var newsSource = $("<a>").text(source);
+                newsSource.attr('href', source);
 
-            // Putting the entire headline above the previous headlines
-            $("#headline-view").prepend(newsDiv);
+                // Displaying the URL
+                newsDiv.append(newsSource);
+
+                // Putting the entire headline above the previous headlines
+                $("#headline-view").html(newsDiv);
             }
         })
 })
