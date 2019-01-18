@@ -11,7 +11,6 @@ $("#headline-news").on("click", function () {
         .then(function (response) {
 
             var shorter = response.results.slice(0, 1);
-            console.log(shorter);
             for (var i = 0; i < shorter.length; i++) {
 
 
