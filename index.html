@@ -37,8 +37,14 @@
                         </div>
                 </div>
                 <div class="col-md-6" id="commute">
-                    <!-- add ready time to commute? -->
-                    <p>commute time: 45min.</p>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" id="startPoint" type="text" placeholder="Origin" aria-label="Search">
+                        <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="Destination" aria-label="Search">
+                        <button class="btn btn-default" id="submit" type="submit" value="submit">
+                            Submit
+                        </button>
+                    </form>
+                    <div id="display"></div>
                 </div>
             </div>
         </div>
@@ -118,7 +124,8 @@
     <script src="assets/js/to-doLogic.js"></script>
     <script src="assets/js/logic.js"></script>
     <script src="assets/js/clock-logic.js"></script>
-
+    <script src="assets/js/commute-time.js"></script>
+    
 </body>
 
 </html>
