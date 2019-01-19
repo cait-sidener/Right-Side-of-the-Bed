@@ -54,21 +54,18 @@
         <div class="container container-WxMaps">
             <div class="row">
                 <div class="col-md-6">
-                    <a>
-                        <!-- wx info from api -->
-                        <p>WX info:</p>
-                        <p>Temp:</p>
-                        <p>Precip:</p>
-                        <img class="wxImage">
-                    </a>
+                    <!-- Zip Code Select Box -->
+                    <form id="zip-form">
+                        <!-- Submit Button -->
+                        <input id="find-zip" type="submit" value="Zip Code">
+                        <!-- Text Input Box -->
+                        <input type="text" id="zip-input">
+                    </form>
                 </div>
 
                 <div class="col-md-6" id="maps">
-                    <a>
-                        <p>Maps link:</p>
-                        <!-- map image from api? -->
-                        <img class="mapImg">
-                    </a>
+                    <!-- Weather Information -->
+                    <div id="weather-div"></div>
                 </div>
             </div>
         </div>
