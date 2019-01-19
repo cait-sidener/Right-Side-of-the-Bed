@@ -15,6 +15,8 @@
 </head>
 
 <body>
+        <body onload="startTime()">
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Right Side of the Bed</h1>
@@ -27,9 +29,6 @@
         <div class="container container-time">
             <div class="row">
                 <div class="col-md-6">
-
-                    <body onload="startTime()">
-
                         <!-- world clock api? -->
                         <div id="clockdate">
                             <div class="clockdate-wrapper">
@@ -105,7 +104,7 @@
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container container-headlineNews">
                 <div class="row">
                     <div class="col-md-3">
                         <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
