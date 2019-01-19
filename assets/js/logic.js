@@ -241,3 +241,16 @@ function checkTime(i) {
 TheySaidSo.render({
     qod_category: "inspire"
 });
+
+
+// Exercise Video
+        // javascript items for the player, which append to the div above
+        var player = DM.player(document.getElementById("player"), {
+            playlist: "x4w70f",
+            width: "45%",
+            height: "45%",
+            params: {
+                autoplay: false,
+                mute: true,
+            }
+        });
