@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <script src="https://api.dmcdn.net/all.js"></script>
     <meta charset="utf-8">
     <title>Right Side of the Bed</title>
 
@@ -39,7 +40,8 @@
                 <div class="col-md-6" id="commute">
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" id="startPoint" type="text" placeholder="Origin" aria-label="Search">
-                        <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="Destination" aria-label="Search">
+                        <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="Destination"
+                            aria-label="Search">
                         <button class="btn btn-default" id="submit" type="submit" value="submit">
                             Submit
                         </button>
@@ -52,21 +54,18 @@
         <div class="container container-WxMaps">
             <div class="row">
                 <div class="col-md-6">
-                    <a>
-                        <!-- wx info from api -->
-                        <p>WX info:</p>
-                        <p>Temp:</p>
-                        <p>Precip:</p>
-                        <img class="wxImage">
-                    </a>
+                    <!-- Weather Information -->
+                    <div id="weather-div"></div>
                 </div>
 
                 <div class="col-md-6" id="maps">
-                    <a>
-                        <p>Maps link:</p>
-                        <!-- map image from api? -->
-                        <img class="mapImg">
-                    </a>
+                    <!-- Zip Code Select Box -->
+                    <form id="zip-form">
+                        <!-- Submit Button -->
+                        <input id="find-zip" type="submit" value="Zip Code">
+                        <!-- Text Input Box -->
+                        <input type="text" id="zip-input">
+                    </form>
                 </div>
             </div>
         </div>
@@ -94,9 +93,9 @@
         <div class="container container-exerciseMusic">
             <div class="row">
                 <div class="col-md-6">
-                    <a>
-                        <p>exercise link:</p>
-                    </a>
+                    <!-- include this player div where you want the video to go -->
+                    <!-- Note: I didn't have a lot of choice in how it is formatted, so hopefully this works OK :( -->
+                    <div id="player"></div>
                 </div>
                 <div class="col-md-6" id="music">
                     <p>music player:</p>
@@ -125,7 +124,7 @@
     <script src="assets/js/logic.js"></script>
     <script src="assets/js/clock-logic.js"></script>
     <script src="assets/js/commute-time.js"></script>
-    
+
 </body>
 
 </html>
