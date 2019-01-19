@@ -8,7 +8,7 @@
         crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <meta charset="utf-8">
-    <title>Project1</title>
+    <title>Right Side of the Bed</title>
 
 </head>
 
@@ -20,23 +20,31 @@
         </div>
     </div>
 
+
     <div class="container-fluid container-content">
         <div class="container container-time">
             <div class="row">
                 <div class="col-md-6">
+
                     <body onload="startTime()">
 
-                    <!-- world clock api? -->
-                    <div id="clockdate">
-                        <div class="clockdate-wrapper">
-                            <div id="clock"></div>
-                            <div id="date"></div>
+                        <!-- world clock api? -->
+                        <div id="clockdate">
+                            <div class="clockdate-wrapper">
+                                <div id="clock"></div>
+                                <div id="date"></div>
+                            </div>
                         </div>
-                    </div>
                 </div>
                 <div class="col-md-6" id="commute">
-                    <!-- add ready time to commute? -->
-                    <p>commute time: 45min.</p>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" id="startPoint" type="text" placeholder="Origin" aria-label="Search">
+                        <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="Destination" aria-label="Search">
+                        <button class="btn btn-default" id="submit" type="submit" value="submit">
+                            Submit
+                        </button>
+                    </form>
+                    <div id="display"></div>
                 </div>
             </div>
         </div>
@@ -69,7 +77,7 @@
             </div>
             <!-- this pair will actually stack not go in line -->
             <div class="toDo">
-        
+
 
                 <!-- Input Form -->
                 <form>
@@ -98,24 +106,25 @@
             </div>
         </div>
 
-        <div class="container-fluid">
-            <div class="container container-buttonsBottom">
-                <button type="button" class="btn btn-outline-primary">Primary</button>
-                <button type="button" class="btn btn-outline-secondary">Secondary</button>
-                <button type="button" class="btn btn-outline-success">Success</button>
-                <button type="button" class="btn btn-outline-danger">Danger</button>
-                <button type="button" class="btn btn-outline-warning">Warning</button>
-                <button type="button" class="btn btn-outline-info">Info</button>
-                <button type="button" class="btn btn-outline-light">Light</button>
-                <button type="button" class="btn btn-outline-dark">Dark</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
+                </div>
+                <div class="col-md-9">
+                    <div id="headline-view"></div>
+                </div>
             </div>
+
         </div>
     </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/to-doLogic.js"></script>
+    <script src="assets/js/logic.js"></script>
     <script src="assets/js/clock-logic.js"></script>
+    <script src="assets/js/commute-time.js"></script>
     
 </body>
 
