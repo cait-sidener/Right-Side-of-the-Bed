@@ -38,7 +38,7 @@ button.checkbox{
     border-radius: 5px;
 }
 
-#commute {
+.title, #display {
     color: white;
 }
 
@@ -89,7 +89,7 @@ button.checkbox{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e8a9a', endColorstr='#001e8a9a',GradientType=1 );
 }
 
-.container-WxMaps {
+.container-commute {
     padding-top: 1em;
     padding-bottom: 1em;
     margin-top: 10px;
