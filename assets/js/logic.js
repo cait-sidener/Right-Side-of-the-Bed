@@ -178,14 +178,10 @@ function geoLocation(origin, destination) {
         method: "GET"
     }).then(function (response) {
         var totalSeconds = response.resourceSets[0].resources[0].travelDurationTraffic;
-        console.log(totalSeconds);
         var hours = Math.floor(totalSeconds / 3600);
-        console.log(hours);
         var minutes = Math.floor(totalSeconds / 60);
-        console.log(minutes);
         var seconds = totalSeconds % 60;
-        console.log(seconds);
-        $("#display").text("Total Commute time " + hours + ":" + minutes + ":" + seconds);
+        $("#display").html("<h3>Total Commute time " + hours + ":" + minutes + ":" + seconds + "<h3>");
     });
 }
 //gets origin and destination input from user
@@ -194,7 +190,6 @@ $("#submit").on("click", function (event) {
 
     var origin = $("#startPoint").val().trim();
     var destination = $("#endPoint").val().trim();
-    console.log("Origin: ", origin, "Destination: ", destination);
     geoLocation(origin, destination);
 });
 
