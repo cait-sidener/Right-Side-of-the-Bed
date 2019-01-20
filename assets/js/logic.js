@@ -232,18 +232,21 @@ function checkTime(i) {
 
 
 //Inspirational Quote
-
-TheySaidSo.render({
+var quote = TheySaidSo.render({
     qod_category: "inspire"
 });
+
+function addQuote(){
+$("#quote-div").append(quote);
+};
 
 
 // Exercise Video
         // javascript items for the player, which append to the div above
         var player = DM.player(document.getElementById("player"), {
             playlist: "x4w70f",
-            width: "45%",
-            height: "45%",
+            width: "100%",
+            height: "100%",
             params: {
                 autoplay: false,
                 mute: true,
