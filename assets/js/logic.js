@@ -149,13 +149,9 @@ function geoLocation(origin, destination){
         method: "GET"
     }).then(function(response){
         var totalSeconds = response.resourceSets[0].resources[0].travelDurationTraffic;
-        console.log(totalSeconds);
         var hours = Math.floor(totalSeconds / 3600);
-            console.log(hours);
         var minutes = Math.floor(totalSeconds / 60);
-        console.log(minutes);
         var seconds = totalSeconds % 60;
-        console.log(seconds);
         $("#display").text("Total Commute time " + hours+ ":"+ minutes+ ":"+ seconds);
     });
 }
@@ -165,7 +161,6 @@ function geoLocation(origin, destination){
     
         var origin = $("#startPoint").val().trim();
         var destination = $("#endPoint").val().trim();
-        console.log("Origin: ", origin, "Destination: ", destination);
         geoLocation(origin, destination);
     });
     
@@ -208,7 +203,6 @@ function geoLocation(origin, destination){
     function getWeather() {
 
         var zip = $("#zip-input").val();
-        console.log(zip);
 
         // QueryURL for openWeatherMap
         var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=df05309380466da4ebc0626f93b711ac";
@@ -217,7 +211,6 @@ function geoLocation(origin, destination){
             url: weatherQueryURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
 
             function kelvinConvert(kelvin) {
                 return Math.round(kelvin - 273.15)
@@ -241,3 +234,14 @@ function geoLocation(origin, destination){
         // Running the getWeather function(passing in the weather as an argument)
         getWeather();
     })
+
+
+    // User Validation
+    function checkForBlank(){
+        if ($("#to-do").value === ""){
+            alert('Please enter starting address');
+            return false;
+        }
+        
+
+    }
