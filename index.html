@@ -14,115 +14,121 @@
 </head>
 
 <body>
-        <body onload="startTime()">
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Right Side of the Bed</h1>
-            <p class="lead"></p>
+    <body onload="startTime()">
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Right Side of the Bed</h1>
+                <p class="lead"></p>
+            </div>
         </div>
-    </div>
 
-    <div class="container-fluid container-content">
-        <div class="container container-time">
-            <div class="row">
-                <div class="col-md-4">
+        <div class="container-fluid container-content">
+            <div class="container container-time">
+                <div class="row">
+                    <div class="col-md-4">
                         <div id="clockdate">
                             <div class="clockdate-wrapper">
                                 <div id="clock"></div>
                                 <div id="date"></div>
                             </div>
                         </div>
-                </div>
-                <!-- weather goes here -->
-                <div class="col-md-4" id="weather">
-                    <!-- Zip Code Select Box -->
-                    <div class="title">
-                        <h3>Current Weather</h3>
-                    </div>  
-                    <form class="form-inline" id="zip-form">
-                        <input class="form-control mr-sm-2" id="zip-input" type="text" placeholder="Zip Code">
-                        <button class="btn btn-default" id="find-zip" type="submit">
-                            Submit
-                        </button>
-                    </form>
-                </div>
-                <!-- Weather Information -->
-                <div class="col-md-4" id="maps">
-                    <div id="weather-div"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container container-commute">
-            <div class="row">
-               <div class="col-md-6">
-                <!-- Commute Time -->
-                <div class="title">
-                        <h3>Calculate Commute Time</h3>
-                </div>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" id="startPoint" type="text" placeholder="Start Address">
-                    <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="End Address">
-                    <button class="btn btn-default" id="submit" type="submit" value="submit">
-                        Submit
-                    </button>
-                </form>
-                </div>
-                <div class="col-md-6">
-                    <div id="display"></div>
-                </div> 
-            </div>
-        </div>
-
-        <div class="container container-quotesToDo">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="title">
-                            <h3>To-Do Item: </h3>
                     </div>
-                    <!-- Input Form -->
-                    <form class="form-inline" id="todo-item">
-                        <input class="form-control mr-sm-4" id="to-do" type="text">
-                        <button class="btn btn-default" id="add-to-do" type="submit">
-                            Add Item
-                        </button>
-                    </form>
-                </div>
-                <!-- Displays to-do list -->
-                <div class="col-md-6">
-                    <div id="to-dos"></div>
+                    <!-- weather goes here -->
+                    <div class="col-md-4" id="weather">
+                        <!-- Zip Code Select Box -->
+                        <div class="title">
+                            <h3>Current Weather</h3>
+                        </div>
+                        <form class="form-inline" id="zip-form">
+                            <input class="form-control mr-sm-2" id="zip-input" type="text" placeholder="Zip Code">
+                            <button class="btn btn-default" id="find-zip" type="submit">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Weather Information -->
+                    <div class="col-md-4" id="maps">
+                        <div id="weather-div"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container container-exerciseMusic">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="container container-commute">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Commute Time -->
+                        <div class="title">
+                            <h3>Calculate Commute Time</h3>
+                        </div>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" id="startPoint" type="text" placeholder="Start Address">
+                            <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="End Address">
+                            <button class="btn btn-default" id="submit" type="submit" value="submit">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="display"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container container-quotesToDo">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="title">
+                            <h3>To-Do Item: </h3>
+                        </div>
+                        <!-- Input Form -->
+                        <form class="form-inline" id="todo-item">
+                            <input class="form-control mr-sm-4" id="to-do" type="text">
+                            <button class="btn btn-default" id="add-to-do" type="submit">
+                                Add Item
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Displays to-do list -->
+                    <div class="col-md-6">
+                        <div id="to-dos"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container container-exerciseMusic">
+                <div class="row">
+                    <div class="col-md-6">
                         <div id="player"></div>
+                    </div>
+                    <div class="col-md-6" id="music">
+                        <audio src="http://www.partyviberadio.com:8000/;listen.pls?sid=1" autoplay="true" controls="true"
+                            volume="0.5"></audio>
+                        <!-- Trying to display the quote here by calling the function when page loads -->
+                        <div id="quote-div">
+                            <body onload="addQuote();"></body>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6" id="music">
-                    <audio src="http://www.partyviberadio.com:8000/;listen.pls?sid=1" autoplay="true" controls="true"
-                        volume="0.5"></audio>
+            </div>
+
+            <div class="container container-headlineNews">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div id="headline-view"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="container container-headlineNews">
-            <div class="row">
-                <div class="col-md-3">
-                    <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
-                </div>
-                <div class="col-md-9">
-                    <div id="headline-view"></div>
-                </div>
-            </div>
-        </div>
-</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://api.dmcdn.net/all.js"></script>
+        <script src="assets/js/logic.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://api.dmcdn.net/all.js"></script>
-<script src="assets/js/logic.js"></script>
-        
-</body>
+    </body>
+
 </html>
