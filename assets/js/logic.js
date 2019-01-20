@@ -138,110 +138,165 @@ renderTodos(list);
 
 
 // Commute Time
-var key ="Ak1mPSqAHW1l1MRNPcHfPyf5W6Awjxu4iGI-YqF_d7yb0LE5Ik5opIazkb8glEAQ";
-function geoLocation(origin, destination){
-        var startRes = encodeURI(origin);
-        var endRes = encodeURI(destination)
-    var queryURL = "http://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=" + startRes + "&wp.1=" + endRes + "&optimize=timewithTraffic&key=" + key;  
+var key = "Ak1mPSqAHW1l1MRNPcHfPyf5W6Awjxu4iGI-YqF_d7yb0LE5Ik5opIazkb8glEAQ";
+
+function geoLocation(origin, destination) {
+    var startRes = encodeURI(origin);
+    var endRes = encodeURI(destination)
+    var queryURL = "http://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=" + startRes + "&wp.1=" + endRes + "&optimize=timewithTraffic&key=" + key;
 
     $.ajax({
-        url:queryURL,
+        url: queryURL,
         method: "GET"
-    }).then(function(response){
+    }).then(function (response) {
         var totalSeconds = response.resourceSets[0].resources[0].travelDurationTraffic;
         var hours = Math.floor(totalSeconds / 3600);
         var minutes = Math.floor(totalSeconds / 60);
         var seconds = totalSeconds % 60;
-        $("#display").text("Total Commute time " + hours+ ":"+ minutes+ ":"+ seconds);
+        $("#display").text("Total Commute time " + hours + ":" + minutes + ":" + seconds);
     });
 }
-    //gets origin and destination input from user
-    $("#submit").on("click", function(event){
-        event.preventDefault();
-    
-        var origin = $("#startPoint").val().trim();
-        var destination = $("#endPoint").val().trim();
-        geoLocation(origin, destination);
+//gets origin and destination input from user
+$("#submit").on("click", function (event) {
+    event.preventDefault();
+
+    var origin = $("#startPoint").val().trim();
+    var destination = $("#endPoint").val().trim();
+    geoLocation(origin, destination);
+});
+
+
+// Clock Time
+function startTime() {
+    var today = new Date();
+    var hr = today.getHours();
+    var min = today.getMinutes();
+    var sec = today.getSeconds();
+    ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
+    hr = (hr == 0) ? 12 : hr;
+    hr = (hr > 12) ? hr - 12 : hr;
+    //Add a zero in front of numbers<10
+    hr = checkTime(hr);
+    min = checkTime(min);
+    sec = checkTime(sec);
+    document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
+
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var curWeekDay = days[today.getDay()];
+    var curDay = today.getDate();
+    var curMonth = months[today.getMonth()];
+    var curYear = today.getFullYear();
+    var date = curWeekDay + ", " + curDay + " " + curMonth + " " + curYear;
+    document.getElementById("date").innerHTML = date;
+
+    var time = setTimeout(function () {
+        startTime()
+    }, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+// Weather
+
+function getWeather() {
+
+    var zip = $("#zip-input").val();
+
+    // QueryURL for openWeatherMap
+    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=df05309380466da4ebc0626f93b711ac";
+
+    $.ajax({
+        url: weatherQueryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        function kelvinConvert(kelvin) {
+            return Math.round(kelvin - 273.15)
+        };
+
+        var city = $("<h1>").text(response.name);
+        var currentTemp = $("<h2>").text("Current: " + (Math.round(((response.main.temp) - 273.15) * (1.8) + 32)));
+        var highTemp = $("<h3>").text("High: " + (Math.round(((response.main.temp_max) - 273.15) * (1.8) + 32)));
+        var lowTemp = $("<h3>").text("Low: " + (Math.round(((response.main.temp_min) - 273.15) * (1.8) + 32)));
+        var details = $("<h3>").text(response.weather[0].description);
+
+        // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
+        $("#weather-div").empty();
+        $("#weather-div").append(city, currentTemp, highTemp, lowTemp, details);
     });
-    
+};
 
-    // Clock Time
-    function startTime() {
-        var today = new Date();
-        var hr = today.getHours();
-        var min = today.getMinutes();
-        var sec = today.getSeconds();
-        ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
-        hr = (hr == 0) ? 12 : hr;
-        hr = (hr > 12) ? hr - 12 : hr;
-        //Add a zero in front of numbers<10
-        hr = checkTime(hr);
-        min = checkTime(min);
-        sec = checkTime(sec);
-        document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec + " " + ap;
-        
-        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        var curWeekDay = days[today.getDay()];
-        var curDay = today.getDate();
-        var curMonth = months[today.getMonth()];
-        var curYear = today.getFullYear();
-        var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
-        document.getElementById("date").innerHTML = date;
-        
-        var time = setTimeout(function(){ startTime() }, 500);
-    }
-    function checkTime(i) {
-        if (i < 10) {
-            i = "0" + i;
+$("#find-zip").on("click", function (event) {
+    event.preventDefault();
+
+    // Running the getWeather function(passing in the weather as an argument)
+    getWeather();
+})
+
+
+// User Validation
+
+function validateZipCode(zip) {
+    // our regular exp...
+    var zipRegExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/
+    console.log(zipRegExp)
+
+    if (zip === '') {
+        return {
+            status: false,
+            error: 'Zipcode field cannot be empty!'
         }
-        return i;
     }
 
-    // Weather
-
-    function getWeather() {
-
-        var zip = $("#zip-input").val();
-
-        // QueryURL for openWeatherMap
-        var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=df05309380466da4ebc0626f93b711ac";
-
-        $.ajax({
-            url: weatherQueryURL,
-            method: "GET"
-        }).then(function (response) {
-
-            function kelvinConvert(kelvin) {
-                return Math.round(kelvin - 273.15)
-            };
-
-            var city = $("<h1>").text(response.name);
-            var currentTemp = $("<h2>").text("Current: " + (Math.round(((response.main.temp) - 273.15) * (1.8) + 32)));
-            var highTemp = $("<h3>").text("High: " + (Math.round(((response.main.temp_max) - 273.15) * (1.8) + 32)));
-            var lowTemp = $("<h3>").text("Low: " + (Math.round(((response.main.temp_min) - 273.15) * (1.8) + 32)));
-            var details = $("<h3>").text(response.weather[0].description);
-
-            // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
-            $("#weather-div").empty();
-            $("#weather-div").append(city, currentTemp, highTemp, lowTemp, details);
-        });
-    };
-
-    $("#find-zip").on("click", function (event) {
-        event.preventDefault();
-
-        // Running the getWeather function(passing in the weather as an argument)
-        getWeather();
-    })
-
-
-    // User Validation
-    function checkForBlank(){
-        if ($("#to-do").value === ""){
-            alert('Please enter starting address');
-            return false;
+    if (!zipRegExp.test(zip)) {
+        return {
+            status: false,
+            error: zip + ' is not a valid zipcode!'
         }
-        
-
     }
+
+    return {
+        status: true,
+        error: null
+    }
+}
+
+// Get reference of our form
+var form = document.getElementById('zip-form')
+
+// Get reference of our error message div
+var zipError = document.getElementById('zip-error')
+
+// Add event listener for on submit event
+form.addEventListener('find-zip', function (evt) {
+    // Get the value of our zip field
+    var zip = document.getElementById('zip-input').value.trim()
+
+    // remove any prev error msg
+    zipError.textContent = ''
+
+    // use our zip validation function
+    var isValid = validateZipCode(zip)
+
+    // check the status of our validation
+    // notice the ! symbol, if 'is not true' then we execute the if block.
+    if (!isValid.status) {
+        // prevent form from been submitted
+        evt.preventDefault()
+
+        // show error msg
+        zipError.textContent = isValid.error
+
+        // exit the function and prevent form from been submitted in older browsers
+        return false
+    }
+
+    // older browsers need true as return value to submit the form
+    return true
+})
