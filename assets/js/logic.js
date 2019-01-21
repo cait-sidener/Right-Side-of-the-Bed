@@ -153,7 +153,7 @@ function geoLocation(origin, destination) {
         var hours = Math.floor(totalSeconds / 3600);
         var minutes = Math.floor(totalSeconds / 60);
         var seconds = totalSeconds % 60;
-        $("#display").text("Total Commute time " + hours + ":" + minutes + ":" + seconds);
+        $("#display").html("<h3>Total Commute time " + hours + ":" + minutes + ":" + seconds + "<h3>");
     });
 }
 //gets origin and destination input from user
@@ -172,6 +172,7 @@ function startTime() {
     var hr = today.getHours();
     var min = today.getMinutes();
     var sec = today.getSeconds();
+    clean_ap = (hr < 12) ? "AM" : "PM";
     ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
     hr = (hr == 0) ? 12 : hr;
     hr = (hr > 12) ? hr - 12 : hr;
@@ -193,6 +194,14 @@ function startTime() {
     var time = setTimeout(function () {
         startTime()
     }, 500);
+
+    if(clean_ap == "AM") {
+        $('body').css('background-image', 'url(assets/images/Project1BkgdImg.jpg)');
+    }
+    else {
+        $('body').css('background-image', 'url()');
+    }
+
 }
 
 function checkTime(i) {
@@ -202,11 +211,30 @@ function checkTime(i) {
     return i;
 }
 
+// Exercise Video
+        // javascript items for the player, which append to the div above
+        var player = DM.player(document.getElementById("player"), {
+            playlist: "x4w70f",
+            width: "100%",
+            height: "100%",
+            params: {
+                autoplay: false,
+                mute: true,
+            }
+        });
+
 // Weather
 
-function getWeather() {
+// Get reference of our form
+var $form = $('#zip-form');
+var $zipInput = $("#zip-input");
+var $zipSubmit = $("#find-zip");
 
-    var zip = $("#zip-input").val();
+// Get reference of our error message div
+var zipError = document.getElementById('zip-error')
+var zip = $zipInput.val();
+
+function getWeather() {
 
     // QueryURL for openWeatherMap
     var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=df05309380466da4ebc0626f93b711ac";
@@ -258,24 +286,16 @@ function validateZipCode(zip) {
     }
 }
 
-// Get reference of our form
-var $form = $('#zip-form');
-
-// Get reference of our error message div
-var zipError = document.getElementById('zip-error')
-
 // Add event listener for on submit event
-$form.on('find-zip', function (evt) {
+$zipSubmit.on("click", function (evt) {
     // Get the value of our zip field
-    var zip = document.getElementById('zip-input').value.trim()
+    zip = document.getElementById('zip-input').value.trim()
 
     // remove any prev error msg
     zipError.textContent = ''
 
     // use our zip validation function
     var isValid = validateZipCode(zip)
-
-    console.log('xxx', isValid);
 
     // check the status of our validation
     // notice the ! symbol, if 'is not true' then we execute the if block.
@@ -294,13 +314,4 @@ $form.on('find-zip', function (evt) {
     // return true
 
     getWeather();
-})
-
-$form.on("click", function (event) {
-    event.preventDefault();
-
-    console.log('onClick');
-
-
-    $form.trigger('find-zip');
 })
