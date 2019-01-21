@@ -44,7 +44,19 @@ $("#headline-news").on("click", function () {
 })
 
 
-// To Do List
+// Exercise video
+var player = DM.player(document.getElementById("player"), {
+    playlist: "x4w70f",
+    width: "45%",
+    height: "45%",
+    params: {
+        autoplay: false,
+        mute: true,
+    }
+});
+
+
+//  To-Do List
 function renderTodos(list) {
     $("#to-dos").empty(); // empties out the html
 
@@ -125,47 +137,7 @@ renderTodos(list);
 
 
 
-// Weather
-
-function getWeather() {
-
-    var zip = $("#zip-input").val();
-    console.log(zip);
-
-    // QueryURL for openWeatherMap
-    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=df05309380466da4ebc0626f93b711ac";
-
-    $.ajax({
-        url: weatherQueryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-
-        function kelvinConvert(kelvin) {
-            return Math.round(kelvin - 273.15)
-        };
-
-        var city = $("<h1>").text(response.name);
-        var currentTemp = $("<h2>").text("Current: " + (Math.round(((response.main.temp) - 273.15) * (1.8) + 32)));
-        var highTemp = $("<h3>").text("High: " + (Math.round(((response.main.temp_max) - 273.15) * (1.8) + 32)));
-        var lowTemp = $("<h3>").text("Low: " + (Math.round(((response.main.temp_min) - 273.15) * (1.8) + 32)));
-        var details = $("<h3>").text(response.weather[0].description);
-
-        // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
-        $("#weather-div").empty();
-        $("#weather-div").append(city, currentTemp, highTemp, lowTemp, details);
-    });
-};
-
-$("#find-zip").on("click", function (event) {
-    event.preventDefault();
-
-    // Running the getWeather function(passing in the weather as an argument)
-    getWeather();
-})
-
-
-//Commute Time
+// Commute Time
 var key = "Ak1mPSqAHW1l1MRNPcHfPyf5W6Awjxu4iGI-YqF_d7yb0LE5Ik5opIazkb8glEAQ";
 
 function geoLocation(origin, destination) {
@@ -194,7 +166,7 @@ $("#submit").on("click", function (event) {
 });
 
 
-// Clock
+// Clock Time
 function startTime() {
     var today = new Date();
     var hr = today.getHours();
@@ -239,17 +211,6 @@ function checkTime(i) {
     return i;
 }
 
-
-//Inspirational Quote
-//var quote = TheySaidSo.render({
-//    qod_category: "inspire"
-//});
-
-//function addQuote(){
-//$("#quote-div").append(quote);
-//};
-
-
 // Exercise Video
         // javascript items for the player, which append to the div above
         var player = DM.player(document.getElementById("player"), {
@@ -261,3 +222,96 @@ function checkTime(i) {
                 mute: true,
             }
         });
+
+// Weather
+
+// Get reference of our form
+var $form = $('#zip-form');
+var $zipInput = $("#zip-input");
+var $zipSubmit = $("#find-zip");
+
+// Get reference of our error message div
+var zipError = document.getElementById('zip-error')
+var zip = $zipInput.val();
+
+function getWeather() {
+
+    // QueryURL for openWeatherMap
+    var weatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + zip + ",us&APPID=df05309380466da4ebc0626f93b711ac";
+
+    $.ajax({
+        url: weatherQueryURL,
+        method: "GET"
+    }).then(function (response) {
+
+        function kelvinConvert(kelvin) {
+            return Math.round(kelvin - 273.15)
+        };
+
+        var city = $("<h1>").text(response.name);
+        var currentTemp = $("<h2>").text("Current: " + (Math.round(((response.main.temp) - 273.15) * (1.8) + 32)));
+        var highTemp = $("<h3>").text("High: " + (Math.round(((response.main.temp_max) - 273.15) * (1.8) + 32)));
+        var lowTemp = $("<h3>").text("Low: " + (Math.round(((response.main.temp_min) - 273.15) * (1.8) + 32)));
+        var details = $("<h3>").text(response.weather[0].description);
+
+        // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
+        $("#weather-div").empty();
+        $("#weather-div").append(city, currentTemp, highTemp, lowTemp, details);
+    });
+};
+
+// User Validation
+
+function validateZipCode(zip) {
+    // our regular exp...
+    var zipRegExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/
+
+    if (zip === '') {
+        return {
+            status: false,
+            error: 'Zipcode field cannot be empty!'
+        }
+    }
+
+    if (!zipRegExp.test(zip)) {
+        return {
+            status: false,
+            error: zip + ' is not a valid zipcode!'
+        }
+    }
+
+    return {
+        status: true,
+        error: null
+    }
+}
+
+// Add event listener for on submit event
+$zipSubmit.on("click", function (evt) {
+    // Get the value of our zip field
+    zip = document.getElementById('zip-input').value.trim()
+
+    // remove any prev error msg
+    zipError.textContent = ''
+
+    // use our zip validation function
+    var isValid = validateZipCode(zip)
+
+    // check the status of our validation
+    // notice the ! symbol, if 'is not true' then we execute the if block.
+    if (!isValid.status) {
+        // prevent form from been submitted
+        evt.preventDefault()
+
+        // show error msg
+        zipError.textContent = isValid.error
+
+        // exit the function and prevent form from been submitted in older browsers
+        return false
+    }
+
+    // older browsers need true as return value to submit the form
+    // return true
+
+    getWeather();
+})
