@@ -1,12 +1,21 @@
 body {
-    background-image: url('../images/Project1BkgdImg.jpg');
+    background-image: url('');
     background-size: 100%;
     font-family: sans-serif;
+}
+
+#find-zip, #submit, #add-to-do, #headline-news{
+    color: black;
+    background-color: lightsteelblue;
+    background-image: none;
+    border: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 button.checkbox{
     background: border-box;
 }
+
 #clock {
     background: -moz-linear-gradient(-45deg, rgba(30,138,154,0) 0%, rgba(30,138,154,0.8) 15%, rgba(30,138,154,1) 19%, rgba(30,138,154,1) 20%, rgba(42,207,216,1) 50%, rgba(30,138,154,1) 80%, rgba(30,138,154,1) 81%, rgba(30,138,154,0.8) 85%, rgba(30,138,154,0) 100%);
     background: -webkit-linear-gradient(-45deg, rgba(30,138,154,0) 0%,rgba(30,138,154,0.8) 15%,rgba(30,138,154,1) 19%,rgba(30,138,154,1) 20%,rgba(42,207,216,1) 50%,rgba(30,138,154,1) 80%,rgba(30,138,154,1) 81%,rgba(30,138,154,0.8) 85%,rgba(30,138,154,0) 100%);
@@ -115,6 +124,14 @@ h1.display-4 {
     text-align: center;
 }
 
+#headline-view{
+    font-size: 1rem;
+}
+
+#headline-view h3, #headline-view a {
+ font-size: 1rem;
+}
+
 html,
 body {
     width: 100%;
@@ -146,16 +163,22 @@ body {
     color: white;
 }
 
+.submit-button-container {
+    text-align: right;
+    padding-top: 10px;
+}
+
 #to-dos{
+    margin-top: 1em;
     text-align: left;
     font-size: smaller;
 
 }
 
-.wxImage {
-    background-image: url("");
-    background-repeat: no-repeat;
-    width: 10px;
-    height: 20px;
+#weather-div{
+    text-align: center;
+}
 
+#alignCommute{
+    margin: auto;
 }

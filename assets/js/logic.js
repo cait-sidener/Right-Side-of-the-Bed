@@ -200,6 +200,7 @@ function startTime() {
     var hr = today.getHours();
     var min = today.getMinutes();
     var sec = today.getSeconds();
+    clean_ap = (hr < 12) ? "AM" : "PM";
     ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
     hr = (hr == 0) ? 12 : hr;
     hr = (hr > 12) ? hr - 12 : hr;
@@ -221,6 +222,14 @@ function startTime() {
     var time = setTimeout(function () {
         startTime()
     }, 500);
+
+    if(clean_ap == "AM") {
+        $('body').css('background-image', 'url(assets/images/Project1BkgdImg.jpg)');
+    }
+    else {
+        $('body').css('background-image', 'url()');
+    }
+
 }
 
 function checkTime(i) {
@@ -232,13 +241,13 @@ function checkTime(i) {
 
 
 //Inspirational Quote
-var quote = TheySaidSo.render({
-    qod_category: "inspire"
-});
+//var quote = TheySaidSo.render({
+//    qod_category: "inspire"
+//});
 
-function addQuote(){
-$("#quote-div").append(quote);
-};
+//function addQuote(){
+//$("#quote-div").append(quote);
+//};
 
 
 // Exercise Video

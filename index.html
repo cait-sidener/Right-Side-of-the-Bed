@@ -35,22 +35,23 @@
                             </div>
                         </div>
                     </div>
-                    <!-- weather goes here -->
+                    <!-- Weather Information -->
+                    <div class="col-md-4" id="wxInfo">
+                        <div id="weather-div"></div>
+                    </div>
                     <div class="col-md-4" id="weather">
                         <!-- Zip Code Select Box -->
                         <div class="title">
                             <h3>Current Weather</h3>
                         </div>
-                        <form class="form-inline" id="zip-form">
+                        <form class="" id="zip-form">
                             <input class="form-control mr-sm-2" id="zip-input" type="text" placeholder="Zip Code">
-                            <button class="btn btn-default" id="find-zip" type="submit">
+                            <div class="submit-button-container">
+                                <button class="btn btn-default" id="find-zip" type="submit">
                                 Submit
-                            </button>
+                                </button>
+                            </div>
                         </form>
-                    </div>
-                    <!-- Weather Information -->
-                    <div class="col-md-4" id="maps">
-                        <div id="weather-div"></div>
                     </div>
                 </div>
             </div>
@@ -65,12 +66,14 @@
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" id="startPoint" type="text" placeholder="Start Address">
                             <input class="form-control mr-sm-2" id="endPoint" type="text" placeholder="End Address">
+                            <div class="move-button-right">
                             <button class="btn btn-default" id="submit" type="submit" value="submit">
                                 Submit
                             </button>
+                            </div>
                         </form>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" id="alignCommute">
                         <div id="display"></div>
                     </div>
                 </div>
@@ -107,22 +110,27 @@
                             volume="0.5"></audio>
                         <!-- Trying to display the quote here by calling the function when page loads -->
                         <div id="quote-div">
-                            <body onload="addQuote();"></body>
+                            <script>
+                            TheySaidSo.render({
+                                qod_category: "inspire"
+                            });
+                            </script>
+                        </div>
+                        <div class="container container-headlineNews">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="headline-view"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container container-headlineNews">
-                <div class="row">
-                    <div class="col-md-3">
-                        <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
-                    </div>
-                    <div class="col-md-9">
-                        <div id="headline-view"></div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
