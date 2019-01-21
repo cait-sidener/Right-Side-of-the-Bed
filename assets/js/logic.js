@@ -245,7 +245,6 @@ $("#find-zip").on("click", function (event) {
 function validateZipCode(zip) {
     // our regular exp...
     var zipRegExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/
-    console.log(zipRegExp)
 
     if (zip === '') {
         return {
