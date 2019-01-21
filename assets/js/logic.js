@@ -232,14 +232,6 @@ function getWeather() {
     });
 };
 
-$("#find-zip").on("click", function (event) {
-    event.preventDefault();
-
-    // Running the getWeather function(passing in the weather as an argument)
-    getWeather();
-})
-
-
 // User Validation
 
 function validateZipCode(zip) {
@@ -267,13 +259,13 @@ function validateZipCode(zip) {
 }
 
 // Get reference of our form
-var form = document.getElementById('zip-form')
+var $form = $('#zip-form');
 
 // Get reference of our error message div
 var zipError = document.getElementById('zip-error')
 
 // Add event listener for on submit event
-form.addEventListener('find-zip', function (evt) {
+$form.on('find-zip', function (evt) {
     // Get the value of our zip field
     var zip = document.getElementById('zip-input').value.trim()
 
@@ -282,6 +274,8 @@ form.addEventListener('find-zip', function (evt) {
 
     // use our zip validation function
     var isValid = validateZipCode(zip)
+
+    console.log('xxx', isValid);
 
     // check the status of our validation
     // notice the ! symbol, if 'is not true' then we execute the if block.
@@ -297,5 +291,16 @@ form.addEventListener('find-zip', function (evt) {
     }
 
     // older browsers need true as return value to submit the form
-    return true
+    // return true
+
+    getWeather();
+})
+
+$form.on("click", function (event) {
+    event.preventDefault();
+
+    console.log('onClick');
+
+
+    $form.trigger('find-zip');
 })
