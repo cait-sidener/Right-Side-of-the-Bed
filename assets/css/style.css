@@ -1,19 +1,17 @@
-body {
-    background-image: url('');
-    background-size: 100%;
-    font-family: sans-serif;
+#alignCommute{
+    margin: auto;
 }
-
-#find-zip, #submit, #add-to-do, #headline-news{
-    color: black;
-    background-color: lightsteelblue;
-    background-image: none;
-    border: none;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+body {
+    background-size: 100%;
+    font-family: 'Tajawal', sans-serif;
 }
 
 button.checkbox{
     background: border-box;
+}
+
+.checkbox {
+    color: white;
 }
 
 #clock {
@@ -45,10 +43,6 @@ button.checkbox{
     max-width: 350px;
     text-align: center;
     border-radius: 5px;
-}
-
-.title, #display {
-    color: white;
 }
 
 .container-headlineNews {
@@ -120,12 +114,24 @@ button.checkbox{
     color: #fff;
 }
 
+#find-zip, #submit, #add-to-do, #headline-news{
+    color: white;
+    background-color: #00726f;
+    background-image: none;
+    border: none;
+    font-family: 'Tajawal', sans-serif;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 h1.display-4 {
     color: white;
+    font-family: 'Poller One', cursive;
     text-align: center;
 }
 
 #headline-view{
+    color: white;
+    font-family: 'Tajawal', sans-serif;
     font-size: 1rem;
 }
 
@@ -159,15 +165,16 @@ body {
     text-align: right;
 }
 
-#quote-div {
-    text-align: center;
-
+.nyTimes {
+    color: #888;
 }
 
-#quote-div a {
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1;
+#quote-div {
+    text-align: center;
+    margin-bottom: 1%;
+
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.3em;
 }
 
 .submit-button-container {
@@ -175,7 +182,14 @@ body {
     padding-top: 10px;
 }
 
+.title, #display {
+    font-family: 'Tajawal', sans-serif;
+    color: white;
+}
+
 #to-dos{
+    color: white;
+    font-family: 'Tajawal', sans-serif;
     margin-top: 1em;
     text-align: left;
     font-size: smaller;
@@ -183,9 +197,9 @@ body {
 }
 
 #weather-div{
+    color: white;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1em;
+    padding: 0;
     text-align: center;
-}
-
-#alignCommute{
-    margin: auto;
 }

@@ -33,6 +33,7 @@ $("#headline-news").on("click", function () {
                 // Creating an element to have headline url displayed
                 var newsSource = $("<a>").text(source);
                 newsSource.attr('href', source);
+                newsSource.addClass("nyTimes");
 
                 // Displaying the URL
                 newsDiv.append(newsSource);
@@ -248,11 +249,11 @@ function getWeather() {
             return Math.round(kelvin - 273.15)
         };
 
-        var city = $("<h1>").text(response.name);
-        var currentTemp = $("<h2>").text("Current: " + (Math.round(((response.main.temp) - 273.15) * (1.8) + 32)));
-        var highTemp = $("<h3>").text("High: " + (Math.round(((response.main.temp_max) - 273.15) * (1.8) + 32)));
-        var lowTemp = $("<h3>").text("Low: " + (Math.round(((response.main.temp_min) - 273.15) * (1.8) + 32)));
-        var details = $("<h3>").text(response.weather[0].description);
+        var city = $("<h2>").text(response.name);
+        var currentTemp = $("<p>").text("Current: " + (Math.round(((response.main.temp) - 273.15) * (1.8) + 32)));
+        var highTemp = $("<p>").text("High: " + (Math.round(((response.main.temp_max) - 273.15) * (1.8) + 32)));
+        var lowTemp = $("<p>").text("Low: " + (Math.round(((response.main.temp_min) - 273.15) * (1.8) + 32)));
+        var details = $("<p>").text(response.weather[0].description);
 
         // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
         $("#weather-div").empty();
