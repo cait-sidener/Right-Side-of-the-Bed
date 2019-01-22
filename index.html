@@ -82,6 +82,13 @@
             </div>
 
             <div class="container container-quotesToDo">
+                    <div id="quote-div">
+                            <script>
+                            TheySaidSo.render({
+                                qod_category: "inspire"
+                            });
+                            </script>
+                        </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="title">
@@ -110,28 +117,19 @@
                     <div class="col-md-6" id="music">
                         <audio src="http://www.partyviberadio.com:8000/;listen.pls?sid=1" autoplay="true" controls="true"
                             volume="0.5"></audio>
-                        <!-- Trying to display the quote here by calling the function when page loads -->
-                        <div id="quote-div">
-                            <script>
-                            TheySaidSo.render({
-                                qod_category: "inspire"
-                            });
-                            </script>
-                        </div>
-                        <div class="container container-headlineNews">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
-                                </div>
-                                <div class="col-md-9">
-                                    <div id="headline-view"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
+            <div class="container container-headlineNews">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="button" id="headline-news" class="btn btn-outline-primary">News Headlines</button>
+                        </div>
+                        <div class="col-md-9">
+                            <div id="headline-view"></div>
+                        </div>
+                    </div>
+                </div>
             
         </div>
 

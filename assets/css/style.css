@@ -53,6 +53,7 @@ button.checkbox{
 
 .container-headlineNews {
     margin-top: 10px;
+    margin-bottom: 1em;
     border-radius: 10px;
     width: 100%;
     height: fit-content;
@@ -158,9 +159,15 @@ body {
     text-align: right;
 }
 
-.quotes {
+#quote-div {
     text-align: center;
+
+}
+
+#quote-div a {
     color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1;
 }
 
 .submit-button-container {
