@@ -125,7 +125,9 @@ button.checkbox{
 
 h1.display-4 {
     color: white;
-    font-family: 'Poller One', cursive;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 80px;
+    font-weight: bolder;
     text-align: center;
 }
 
@@ -196,7 +198,7 @@ body {
 
 }
 
-#weather-div{
+#weather-div, #current, #high, #low{
     color: white;
     font-family: 'Tajawal', sans-serif;
     font-size: 1em;

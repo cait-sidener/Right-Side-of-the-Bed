@@ -5,9 +5,9 @@ $("#headline-news").on("click", function () {
     var queryURL = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=5G5trsY71XEGyCzsg97O2rky6AnWpUOt&limit=1";
 
     $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
+        url: queryURL,
+        method: "GET"
+    })
         // After data comes back from the request
         .then(function (response) {
 
@@ -196,7 +196,7 @@ function startTime() {
         startTime()
     }, 500);
 
-    if(clean_ap == "PM") {
+    if (clean_ap == "PM") {
         $('body').css('background-image', 'url(assets/images/Project1BkgdImg.jpg)');
     }
     else {
@@ -213,16 +213,15 @@ function checkTime(i) {
 }
 
 // Exercise Video
-        // javascript items for the player, which append to the div above
-        var player = DM.player(document.getElementById("player"), {
-            playlist: "x4w70f",
-            width: "100%",
-            height: "100%",
-            params: {
-                autoplay: false,
-                mute: true,
-            }
-        });
+var player = DM.player(document.getElementById("player"), {
+    playlist: "x4w70f",
+    width: "100%",
+    height: "100%",
+    params: {
+        autoplay: false,
+        mute: true,
+    }
+});
 
 // Weather
 
@@ -257,7 +256,11 @@ function getWeather() {
 
         // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
         $("#weather-div").empty();
-        $("#weather-div").append(city, currentTemp, highTemp, lowTemp, details);
+        $("#weather-div").append(city);
+        $("#current").append(currentTemp);
+        $("#high").append(highTemp, details);
+        $("#low").append(lowTemp);
+        
     });
 };
 
