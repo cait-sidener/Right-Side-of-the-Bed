@@ -195,7 +195,7 @@ function startTime() {
         startTime()
     }, 500);
 
-    if(clean_ap == "AM") {
+    if(clean_ap == "PM") {
         $('body').css('background-image', 'url(assets/images/Project1BkgdImg.jpg)');
     }
     else {
