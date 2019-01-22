@@ -3,11 +3,9 @@
 }
 
 body {
-    background-image: url('');
     background-size: 100%;
     font-family: sans-serif;
 }
-
 
 button.checkbox {
     background: border-box;
@@ -73,6 +71,7 @@ button.checkbox {
 
 .container-headlineNews {
     margin-top: 10px;
+    margin-bottom: 1em;
     border-radius: 10px;
     width: 100%;
     height: fit-content;
@@ -116,9 +115,8 @@ button.checkbox {
 #submit,
 #add-to-do,
 #headline-news {
-    color: black;
-    background-color: lightsteelblue;
-    background-image: none;
+    background-color: #00726f;
+    color: white;
     border: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
@@ -130,6 +128,7 @@ h1.display-4 {
 }
 
 #headline-view {
+    color: white;
     font-size: 1rem;
 }
 
@@ -164,9 +163,16 @@ body {
     text-align: right;
 }
 
-.quotes {
+#quote-div {
     text-align: center;
+    margin-bottom: 1.5em;
+
+}
+
+#quote-div a {
     color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1em;
 }
 
 .submit-button-container {
@@ -179,10 +185,11 @@ body {
     color: white;
 }
 
+
 #to-dos {
+    color: white;
+    font-size: .8em;
     margin-top: 1em;
-    text-align: left;
-    font-size: smaller;
 }
 
 #weather-div {

@@ -10,23 +10,22 @@ $("#headline-news").on("click", function () {
         })
         // After data comes back from the request
         .then(function (response) {
-            console.log(response)
 
             var shorter = response.results.slice(0, 1);
             for (var i = 0; i < shorter.length; i++) {
 
 
-                //Creating a div to hold the movie
+                //Creating a div to hold the headline
                 var newsDiv = $("<div class='news'>");
 
                 // Storing headline title data
                 var headline = shorter[i].title;
 
                 // Creating an element to have headline abstract display
-                var title = $("<h3>").text(headline);
+                var headline = $("<h3>").text(headline);
 
                 // Displaying the abstract
-                newsDiv.append(title);
+                newsDiv.append(headline);
 
                 // Storing the source
                 var source = shorter[i].url;
@@ -196,9 +195,10 @@ function startTime() {
         startTime()
     }, 500);
 
-    if (clean_ap == "AM") {
+    if(clean_ap == "PM") {
         $('body').css('background-image', 'url(assets/images/Project1BkgdImg.jpg)');
-    } else {
+    }
+    else {
         $('body').css('background-image', 'url()');
     }
 
@@ -212,16 +212,16 @@ function checkTime(i) {
 }
 
 // Exercise Video
-// javascript items for the player, which append to the div above
-var player = DM.player(document.getElementById("player"), {
-    playlist: "x4w70f",
-    width: "100%",
-    height: "100%",
-    params: {
-        autoplay: false,
-        mute: true,
-    }
-});
+        // javascript items for the player, which append to the div above
+        var player = DM.player(document.getElementById("player"), {
+            playlist: "x4w70f",
+            width: "100%",
+            height: "100%",
+            params: {
+                autoplay: false,
+                mute: true,
+            }
+        });
 
 // Weather
 
