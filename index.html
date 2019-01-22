@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script type="text/javascript" src="https://theysaidso.com/gadgets/v3/theysaidso.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Poller+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poller+One|Tajawal" rel="stylesheet">
     <script src="https://api.dmcdn.net/all.js"></script>
     <meta charset="utf-8">
     <title>Right Side of the Bed</title>
@@ -27,6 +27,13 @@
 
         <div class="container-fluid container-content">
             <div class="container container-time">
+                    <div id="quote-div">
+                            <script>
+                            TheySaidSo.render({
+                                qod_category: "inspire"
+                            });
+                            </script>
+                        </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div id="clockdate">
@@ -47,11 +54,12 @@
                         </div>
                         <form class="" id="zip-form">
                             <input class="form-control mr-sm-2" id="zip-input" type="text" placeholder="Zip Code">
+                            <div id="zip-error"></div>
                             <div class="submit-button-container">
                                 <button class="btn btn-default" id="find-zip" type="button">
                                 Submit
                                 </button>
-                                <div id="zip-error"></div>
+                                
                             </div>
                         </form>
                     </div>
@@ -82,13 +90,7 @@
             </div>
 
             <div class="container container-quotesToDo">
-                    <div id="quote-div">
-                            <script>
-                            TheySaidSo.render({
-                                qod_category: "inspire"
-                            });
-                            </script>
-                        </div>
+                    
                 <div class="row">
                     <div class="col-md-6">
                         <div class="title">
