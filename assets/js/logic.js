@@ -34,7 +34,7 @@ $("#headline-news").on("click", function () {
                 var newsSource = $("<a>").text(source);
                 newsSource.attr('href', source);
                 newsSource.addClass("nyTimes");
-
+                newsSource.attr('target', '_blank');
                 // Displaying the URL
                 newsDiv.append(newsSource);
 
@@ -256,6 +256,10 @@ function getWeather() {
 
         // NOTE: CAN ALSO ADD CORRESPONDING WEATHER ICON. LOOK INTO IT IF THERE'S TIME.
         $("#weather-div").empty();
+        $("#current").empty();
+        $("#high").empty();
+        $("#low").empty();
+
         $("#weather-div").append(city);
         $("#current").append(currentTemp);
         $("#high").append(highTemp, details);
