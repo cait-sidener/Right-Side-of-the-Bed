@@ -174,7 +174,7 @@ function startTime() {
     var min = today.getMinutes();
     var sec = today.getSeconds();
     clean_ap = (hr < 12) ? "AM" : "PM";
-    ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
+    ap = (hr < 12) ? "AM" : "PM";
     hr = (hr == 0) ? 12 : hr;
     hr = (hr > 12) ? hr - 12 : hr;
     //Add a zero in front of numbers<10
@@ -194,13 +194,13 @@ function startTime() {
 
     var time = setTimeout(function () {
         startTime()
-    }, 500);
+    }, 50000);
 
-    if (clean_ap == "PM") {
+    if (clean_ap == "AM") {
         $('body').css('background-image', 'url(assets/images/Project1BkgdImg.jpg)');
     }
     else {
-        $('body').css('background-image', 'url()');
+        $('body').css('background-image', 'url(assets/images/blue-bright-clouds.jpg)');
     }
 
 }

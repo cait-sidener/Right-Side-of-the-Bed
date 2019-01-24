@@ -20,10 +20,12 @@ button.checkbox{
     background: linear-gradient(135deg, rgba(30,138,154,0) 0%,rgba(30,138,154,0.8) 15%,rgba(30,138,154,1) 19%,rgba(30,138,154,1) 20%,rgba(42,207,216,1) 50%,rgba(30,138,154,1) 80%,rgba(30,138,154,1) 81%,rgba(30,138,154,0.8) 85%,rgba(30,138,154,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e8a9a', endColorstr='#001e8a9a',GradientType=1 );
     font-family: sans-serif;
-    font-size: 60px;
+    font-size: 3em;
     text-shadow: 0px 0px 1px #fff;
     color: #fff;
     border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #clock span {
@@ -43,14 +45,21 @@ button.checkbox{
     max-width: 350px;
     text-align: center;
     border-radius: 5px;
+    padding-bottom: 10px;
 }
 
 .container-headlineNews {
+    background: -moz-linear-gradient(-45deg, rgba(21,60,105,0) 0%, rgba(21,60,105,0.8) 15%, rgba(21,60,105,1) 19%, rgba(21,60,105,1) 20%, rgba(28,95,150,1) 50%, rgba(21,60,105,1) 80%, rgba(21,60,105,1) 81%, rgba(21,60,105,0.8) 85%, rgba(21,60,105,0) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(21,60,105,0) 0%,rgba(21,60,105,0.8) 15%,rgba(21,60,105,1) 19%,rgba(21,60,105,1) 20%,rgba(28,95,150,1) 50%,rgba(21,60,105,1) 80%,rgba(21,60,105,1) 81%,rgba(21,60,105,0.8) 85%,rgba(21,60,105,0) 100%);
+    background: linear-gradient(135deg, rgba(21,60,105,0) 0%,rgba(21,60,105,0.8) 15%,rgba(21,60,105,1) 19%,rgba(21,60,105,1) 20%,rgba(28,95,150,1) 50%,rgba(21,60,105,1) 80%,rgba(21,60,105,1) 81%,rgba(21,60,105,0.8) 85%,rgba(21,60,105,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00153c69', endColorstr='#00153c69',GradientType=1 );
     margin-top: 10px;
     margin-bottom: 1em;
     border-radius: 10px;
     width: 100%;
     height: fit-content;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .container-exerciseMusic {
