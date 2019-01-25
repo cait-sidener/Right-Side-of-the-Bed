@@ -144,7 +144,7 @@ var key = "Ak1mPSqAHW1l1MRNPcHfPyf5W6Awjxu4iGI-YqF_d7yb0LE5Ik5opIazkb8glEAQ";
 function geoLocation(origin, destination) {
     var startRes = encodeURI(origin);
     var endRes = encodeURI(destination)
-    var queryURL = "http://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=" + startRes + "&wp.1=" + endRes + "&optimize=timewithTraffic&key=" + key;
+    var queryURL = "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=" + startRes + "&wp.1=" + endRes + "&optimize=timewithTraffic&key=" + key;
 
     $.ajax({
         url: queryURL,
